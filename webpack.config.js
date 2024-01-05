@@ -15,6 +15,11 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
     ],
   },
   resolve: {
@@ -30,6 +35,5 @@ module.exports = {
     hotOnly: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
-  devtool: "nosources-source-map",
-  // devtool: 'eval-cheap-module-source-map',
+  devtool: "eval-source-map",
 };
